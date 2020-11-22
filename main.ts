@@ -1,19 +1,25 @@
+input.onButtonPressed(Button.A, function () {
+    Vandret = false
+})
+input.onButtonPressed(Button.B, function () {
+    Vandret = true
+})
+let Vandret = false
+Vandret = true
 basic.forever(function () {
-    for (let pause=100; pause > 0; pause -= 10)
-    {
-        for (let y = 0; y <= 4; y++) {
-            for (let x = 0; x <= 4; x++) {
-                led.toggle(x, y)
-                basic.pause(pause)
-                led.toggle(x, y)
+    for (let Y = 0; Y <= 4; Y++) {
+        for (let X = 0; X <= 4; X++) {
+            if (Vandret) {
+                led.toggle(X, Y)
+                basic.pause(200)
+                led.toggle(X, Y)
+                basic.pause(100)
+            } else {
+                led.toggle(Y, X)
+                basic.pause(200)
+                led.toggle(Y, X)
+                basic.pause(100)
             }
         }
-        for (let y = 0; y <= 4; y++) {
-            for (let x = 0; x <= 4; x++) {
-                led.toggle(y, x)
-                basic.pause(pause)
-                led.toggle(y, x)
-            }
-        }
-    }   
+    }
 })
