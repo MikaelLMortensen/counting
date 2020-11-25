@@ -1,6 +1,9 @@
 input.onButtonPressed(Button.A, function () {
     Vandret = false
 })
+input.onButtonPressed(Button.AB, function () {
+    basic.clearScreen()
+})
 input.onButtonPressed(Button.B, function () {
     Vandret = true
 })
@@ -11,12 +14,12 @@ basic.forever(function () {
         for (let X = 0; X <= 4; X++) {
             if (Vandret) {
                 led.toggle(X, Y)
-                basic.pause(200)
+                basic.pause(100)
                 led.toggle(X, Y)
                 basic.pause(100)
             } else {
                 led.toggle(Y, X)
-                basic.pause(200)
+                basic.pause(100)
                 led.toggle(Y, X)
                 basic.pause(100)
             }
